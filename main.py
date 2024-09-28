@@ -4,6 +4,7 @@ import json
 import time
 import os
 from urllib.parse import urlparse
+import datetime
 
 def get_all_pages(url):
     headers = {
@@ -185,8 +186,14 @@ def save_to_json(loupans, filename):
     os.makedirs(react_public_dir, exist_ok=True)
     file_path = os.path.join(react_public_dir, filename)
     
+    # 添加爬取时间
+    data = {
+        "scrape_time": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "loupans": loupans
+    }
+    
     with open(file_path, 'w', encoding='utf-8') as f:
-        json.dump(loupans, f, ensure_ascii=False, indent=4)
+        json.dump(data, f, ensure_ascii=False, indent=4)
     
     print(f"Data saved to {file_path}")
 

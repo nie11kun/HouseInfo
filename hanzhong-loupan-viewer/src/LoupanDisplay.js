@@ -3,12 +3,16 @@ import { Card, Badge, Carousel } from 'react-bootstrap';
 import Modal from 'react-bootstrap/Modal';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-const LoupanDisplay = ({ loupan }) => {
+const LoupanDisplay = ({ loupan, selectedHouseType }) => {
   const [showModal, setShowModal] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   const [index, setIndex] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
   const carouselRef = useRef(null);
+
+  const filteredHouseTypes = selectedHouseType === 'all' 
+    ? loupan.house_types 
+    : loupan.house_types.filter(house => house.name === selectedHouseType);
 
   const handleImageError = (e) => {
     e.target.onerror = null;
@@ -73,7 +77,7 @@ const LoupanDisplay = ({ loupan }) => {
           <p className="mb-1">价格: {loupan.price} {loupan.price_unit}</p>
           <p className="mb-1">总价: {loupan.total_price}</p>
           <p className="mb-3">最新开盘: {loupan.latest_open_date}</p>
-          {loupan.house_types.length > 0 && (
+          {filteredHouseTypes.length > 0 && (
             <div className="position-relative" 
                  onTouchStart={handleTouchStart} 
                  onTouchMove={handleTouchMove}
@@ -88,7 +92,7 @@ const LoupanDisplay = ({ loupan }) => {
                 indicators={false}
                 interval={null}
               >
-                {loupan.house_types.map((houseType, hIndex) => (
+                {filteredHouseTypes.map((houseType, hIndex) => (
                   <Carousel.Item key={hIndex}>
                     <img
                       className="d-block w-100"
