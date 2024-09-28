@@ -191,7 +191,7 @@ def save_to_json(loupans, filename):
     print(f"Data saved to {file_path}")
 
 # 主程序
-base_url = 'https://hanzhong.fang.ke.com/loupan/'
+base_url = 'https://hanzhong.fang.ke.com/loupan/hantaiqu/'
 all_pages = get_all_pages(base_url)
 all_loupans = []
 
