@@ -83,15 +83,24 @@ def get_loupan_details(detail_url):
             else:
                 type_info['price'] = 'N/A'
             
-            # 修改图片下载部分
-            current_dir = os.path.dirname(os.path.abspath(__file__))
-            react_public_dir = os.path.join(current_dir, 'hanzhong-loupan-viewer', 'public', 'images')
-            os.makedirs(react_public_dir, exist_ok=True)
+            # 获取图片URL
+            img_elem = house_type.find('img', class_='img')
+            if img_elem and 'src' in img_elem.attrs:
+                type_info['image_url'] = img_elem['src']
+            else:
+                type_info['image_url'] = 'N/A'
             
-            for house_type in details['house_types']:
-                if 'image_url' in house_type and house_type['image_url'] != 'N/A':
-                    local_image = download_image(house_type['image_url'], react_public_dir)
-                    house_type['local_image'] = f'/images/{local_image}' if local_image else None
+            details['house_types'].append(type_info)
+    
+    # 下载图片
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    react_public_dir = os.path.join(current_dir, 'hanzhong-loupan-viewer', 'public', 'images')
+    os.makedirs(react_public_dir, exist_ok=True)
+    
+    for house_type in details['house_types']:
+        if 'image_url' in house_type and house_type['image_url'] != 'N/A':
+            local_image = download_image(house_type['image_url'], react_public_dir)
+            house_type['local_image'] = f'/images/{local_image}' if local_image else None
     
     return details
 
@@ -171,19 +180,11 @@ def scrape_loupan(url):
     return loupans
 
 def save_to_json(loupans, filename):
-    # 获取当前脚本的目录
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    
-    # 构建 React 应用的 public 文件夹路径
     react_public_dir = os.path.join(current_dir, 'hanzhong-loupan-viewer', 'public')
-    
-    # 确保 public 文件夹存在
     os.makedirs(react_public_dir, exist_ok=True)
-    
-    # 构建完整的文件路径
     file_path = os.path.join(react_public_dir, filename)
     
-    # 保存 JSON 文件
     with open(file_path, 'w', encoding='utf-8') as f:
         json.dump(loupans, f, ensure_ascii=False, indent=4)
     
