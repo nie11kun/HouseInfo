@@ -194,7 +194,45 @@ def scrape_loupan(url, image_cache):
             loupan['latest_open_date'] = 'N/A'
             loupan['house_types'] = []
         
-        # ... (其余代码保持不变)
+        # 提取楼盘状态和类型
+        status_spans = item.find_all('span', class_='resblock-type')
+        loupan['status'] = status_spans[0].text if status_spans else 'N/A'
+        loupan['type'] = status_spans[1].text if len(status_spans) > 1 else 'N/A'
+        
+        # 提取位置信息
+        location = item.find('a', class_='resblock-location')
+        loupan['location'] = location.text.strip() if location else 'N/A'
+        
+        # 提取户型和面积信息
+        room_info = item.find('a', class_='resblock-room')
+        if room_info:
+            room_spans = room_info.find_all('span')
+            loupan['room_types'] = '/'.join([span.text for span in room_spans if '室' in span.text])
+            area = room_info.find('span', class_='area')
+            loupan['area'] = area.text.strip() if area else 'N/A'
+        else:
+            loupan['room_types'] = 'N/A'
+            loupan['area'] = 'N/A'
+        
+        # 提取标签
+        tags = item.find('div', class_='resblock-tag')
+        loupan['tags'] = ', '.join([span.text for span in tags.find_all('span')]) if tags else 'N/A'
+        
+        # 提取价格信息
+        price_info = item.find('div', class_='resblock-price')
+        if price_info:
+            main_price = price_info.find('span', class_='number')
+            loupan['price'] = main_price.text.strip() if main_price else 'N/A'
+            
+            price_desc = price_info.find('span', class_='desc')
+            loupan['price_unit'] = price_desc.text.strip() if price_desc else 'N/A'
+            
+            second_price = price_info.find('div', class_='second')
+            loupan['total_price'] = second_price.text.strip() if second_price else 'N/A'
+        else:
+            loupan['price'] = 'N/A'
+            loupan['price_unit'] = 'N/A'
+            loupan['total_price'] = 'N/A'
         
         loupans.append(loupan)
         time.sleep(1)  # 在每次请求详情页之间添加延时

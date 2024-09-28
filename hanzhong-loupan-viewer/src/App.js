@@ -21,9 +21,7 @@ function App() {
         setSortedLoupans(response.data.loupans);
         setScrapeTime(response.data.scrape_time);
         
-        // 提取所有可能的户型选项
         const houseTypes = new Set();
-        // 提取所有可能的销售状态选项
         const salesStatuses = new Set();
         
         response.data.loupans.forEach(loupan => {
@@ -45,6 +43,15 @@ function App() {
       });
   }, []);
 
+  const parseNumber = (value) => {
+    if (typeof value === 'number') return value;
+    if (typeof value === 'string') {
+      const number = parseFloat(value.replace(/[^0-9.-]+/g,""));
+      return isNaN(number) ? -Infinity : number;
+    }
+    return -Infinity;
+  };
+
   const sortLoupans = (criteria) => {
     let sorted = [...sortedLoupans];
     switch(criteria) {
@@ -52,13 +59,19 @@ function App() {
         sorted.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
         break;
       case 'totalPrice':
-        sorted.sort((a, b) => {
-          const getNumber = (str) => parseFloat(str.replace(/[^0-9.-]+/g,""));
-          return getNumber(a.total_price) - getNumber(b.total_price);
-        });
+        sorted.sort((a, b) => parseNumber(a.total_price) - parseNumber(b.total_price));
         break;
       case 'openDate':
         sorted.sort((a, b) => new Date(b.latest_open_date) - new Date(a.latest_open_date));
+        break;
+      case 'greenRatio':
+        sorted.sort((a, b) => parseNumber(b.green_ratio) - parseNumber(a.green_ratio));
+        break;
+      case 'plotRatio':
+        sorted.sort((a, b) => parseNumber(a.plot_ratio) - parseNumber(b.plot_ratio));
+        break;
+      case 'propertyFee':
+        sorted.sort((a, b) => parseNumber(a.property_fee) - parseNumber(b.property_fee));
         break;
       default:
         sorted = [...loupans];
@@ -87,6 +100,19 @@ function App() {
   useEffect(() => {
     filterLoupans();
   }, [filterLoupans]);
+
+  const getSortByText = (sortBy) => {
+    const sortOptions = {
+      'default': '默认',
+      'price': '价格',
+      'totalPrice': '总价',
+      'openDate': '最新开盘时间',
+      'greenRatio': '绿化率',
+      'plotRatio': '容积率',
+      'propertyFee': '物业费'
+    };
+    return sortOptions[sortBy] || '默认';
+  };
 
   return (
     <Container fluid>
@@ -117,9 +143,7 @@ function App() {
         </Form.Select>
         <Dropdown as={ButtonGroup}>
           <Dropdown.Toggle variant="primary" id="dropdown-basic">
-            排序方式: {sortBy === 'default' ? '默认' : 
-                       sortBy === 'price' ? '价格' : 
-                       sortBy === 'totalPrice' ? '总价' : '最新开盘时间'}
+            排序方式: {getSortByText(sortBy)}
           </Dropdown.Toggle>
 
           <Dropdown.Menu>
@@ -127,6 +151,9 @@ function App() {
             <Dropdown.Item onClick={() => sortLoupans('price')}>价格</Dropdown.Item>
             <Dropdown.Item onClick={() => sortLoupans('totalPrice')}>总价</Dropdown.Item>
             <Dropdown.Item onClick={() => sortLoupans('openDate')}>最新开盘时间</Dropdown.Item>
+            <Dropdown.Item onClick={() => sortLoupans('greenRatio')}>绿化率</Dropdown.Item>
+            <Dropdown.Item onClick={() => sortLoupans('plotRatio')}>容积率</Dropdown.Item>
+            <Dropdown.Item onClick={() => sortLoupans('propertyFee')}>物业费</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
       </div>

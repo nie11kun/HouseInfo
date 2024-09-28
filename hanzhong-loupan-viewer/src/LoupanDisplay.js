@@ -67,19 +67,39 @@ const LoupanDisplay = ({ loupan, selectedHouseType }) => {
   return (
     <>
       <Card className="h-100">
-        <Card.Body>
-          <Card.Title>{loupan.name}</Card.Title>
-          <Card.Subtitle className="mb-2 text-muted">{loupan.location}</Card.Subtitle>
-          <div className="d-flex flex-wrap mb-2">
-            <Badge bg="primary" className="me-2 mb-1">{loupan.status}</Badge>
-            <Badge bg="secondary" className="me-2 mb-1">{loupan.type}</Badge>
+        <Card.Body className="p-3">
+          <div className="d-flex justify-content-between align-items-start mb-2">
+            <div>
+              <Card.Title className="mb-0">{loupan.name}</Card.Title>
+              <Card.Subtitle className="text-muted small">{loupan.location}</Card.Subtitle>
+            </div>
+            <div className="d-flex">
+              <Badge bg="primary" className="me-1">{loupan.status}</Badge>
+              <Badge bg="secondary">{loupan.type}</Badge>
+            </div>
           </div>
-          <p className="mb-1">价格: {loupan.price} {loupan.price_unit}</p>
-          <p className="mb-1">总价: {loupan.total_price}</p>
-          <p className="mb-1">最新开盘: {loupan.latest_open_date}</p>
-          <p className="mb-1">绿化率: {loupan.green_ratio || 'N/A'}</p>
-          <p className="mb-1">容积率: {loupan.plot_ratio || 'N/A'}</p>
-          <p className="mb-3">物业费: {loupan.property_fee || 'N/A'}</p>
+          
+          <div className="row g-2 mb-3">
+            <div className="col-6">
+              <small className="text-muted">价格:</small> {loupan.price} {loupan.price_unit}
+            </div>
+            <div className="col-6">
+              <small className="text-muted">绿化率:</small> {loupan.green_ratio || 'N/A'}
+            </div>
+            <div className="col-6">
+              <small className="text-muted">总价:</small> {loupan.total_price}
+            </div>
+            <div className="col-6">
+              <small className="text-muted">容积率:</small> {loupan.plot_ratio || 'N/A'}
+            </div>
+            <div className="col-6">
+              <small className="text-muted">最新开盘:</small> {loupan.latest_open_date}
+            </div>
+            <div className="col-6">
+              <small className="text-muted">物业费:</small> {loupan.property_fee || 'N/A'}
+            </div>
+          </div>
+
           {filteredHouseTypes.length > 0 && (
             <div className="position-relative" 
                  onTouchStart={handleTouchStart} 
@@ -99,14 +119,14 @@ const LoupanDisplay = ({ loupan, selectedHouseType }) => {
                   <Carousel.Item key={hIndex}>
                     <img
                       className="d-block w-100"
-                      style={{ height: '250px', objectFit: 'cover', cursor: 'pointer' }}
+                      style={{ height: '200px', objectFit: 'cover', cursor: 'pointer' }}
                       src={houseType.local_image || `https://via.placeholder.com/300x200?text=${encodeURIComponent(houseType.name)}`}
                       onError={handleImageError}
                       alt={houseType.name}
                       onClick={() => handleImageClick(houseType.local_image || `https://via.placeholder.com/300x200?text=${encodeURIComponent(houseType.name)}`)}
                     />
                     <div className="position-absolute bottom-0 start-0 end-0 p-2 bg-dark bg-opacity-50 text-white">
-                      <h6 className="mb-1">{houseType.name}</h6>
+                      <h6 className="mb-0">{houseType.name}</h6>
                       <p className="mb-0 small">{houseType.area} | {houseType.price}</p>
                     </div>
                   </Carousel.Item>
