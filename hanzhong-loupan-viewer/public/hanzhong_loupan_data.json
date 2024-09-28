@@ -1,5 +1,5 @@
 {
-    "scrape_time": "2024-09-28 14:16:20",
+    "scrape_time": "2024-09-28 14:30:04",
     "loupans": [
         {
             "name": "雅居乐花园",
@@ -36,16 +36,7 @@
             ],
             "green_ratio": "35%",
             "plot_ratio": "3.00",
-            "property_fee": "1.65元/m²/月",
-            "status": "在售",
-            "type": "N/A",
-            "location": "汉台区/汉台区/陕西省汉中市汉台区益州路",
-            "room_types": "3室/4室",
-            "area": "建面 78-141㎡",
-            "tags": "低单价, 低总价, 绿化率高, 人车分流",
-            "price": "5900",
-            "price_unit": "元/㎡(均价)",
-            "total_price": "总价57-83(万/套)"
+            "property_fee": "1.65元/m²/月"
         },
         {
             "name": "首席壹号",
@@ -96,16 +87,7 @@
             ],
             "green_ratio": "41%",
             "plot_ratio": "1.66",
-            "property_fee": "3.2~3.5元/m²/月",
-            "status": "在售",
-            "type": "N/A",
-            "location": "汉台区/汉台区/南一环路首席壹号",
-            "room_types": "3室/5室",
-            "area": "建面 183-383㎡",
-            "tags": "车位充足, 绿化率高, 置换改善, 养老舒适",
-            "price": "9150",
-            "price_unit": "元/㎡(均价)",
-            "total_price": "总价167-282(万/套)"
+            "property_fee": "3.2~3.5元/m²/月"
         },
         {
             "name": "蓝城·春风江南",
@@ -142,16 +124,7 @@
             ],
             "green_ratio": "35%",
             "plot_ratio": "1.40",
-            "property_fee": "1.8元/m²/月",
-            "status": "在售",
-            "type": "N/A",
-            "location": "汉台区/汉台区/西二环路蓝城·春风江南",
-            "room_types": "3室/4室",
-            "area": "建面 83-249㎡",
-            "tags": "车位充足, 绿化率高, 置换改善, 高品质小区",
-            "price": "7500",
-            "price_unit": "元/㎡(均价)",
-            "total_price": "总价80-315(万/套)"
+            "property_fee": "1.8元/m²/月"
         },
         {
             "name": "亿丰兴汉学府",
@@ -181,16 +154,7 @@
             ],
             "green_ratio": "34%",
             "plot_ratio": "1.72",
-            "property_fee": "1.2~1.5元/m²/月",
-            "status": "在售",
-            "type": "N/A",
-            "location": "汉台区/汉台区/陕西省汉中市汉台区兴汉路汉中中学东侧亿丰兴汉学府",
-            "room_types": "3室/4室",
-            "area": "建面 82-126㎡",
-            "tags": "低单价, 低总价, 车位充足, 低密居所",
-            "price": "5600",
-            "price_unit": "元/㎡(均价)",
-            "total_price": "总价45-70(万/套)"
+            "property_fee": "1.2~1.5元/m²/月"
         },
         {
             "name": "亿丰兴汉学府",
@@ -220,16 +184,7 @@
             ],
             "green_ratio": "34%",
             "plot_ratio": "1.70",
-            "property_fee": "1.5元/m²/月",
-            "status": "在售",
-            "type": "N/A",
-            "location": "汉台区/汉台区/陕西省汉中市汉台区兴汉路汉中中学东侧亿丰兴汉学府",
-            "room_types": "2室/3室",
-            "area": "建面 40-97㎡",
-            "tags": "低单价, 车位充足, 人车分流, 儿童乐园",
-            "price": "4000",
-            "price_unit": "元/㎡(均价)",
-            "total_price": "总价26-40(万/套)"
+            "property_fee": "1.5元/m²/月"
         },
         {
             "name": "亿丰兴汉学府",
@@ -252,16 +207,7 @@
             ],
             "green_ratio": "34%",
             "plot_ratio": "1.70",
-            "property_fee": "4元/m²/月",
-            "status": "在售",
-            "type": "N/A",
-            "location": "汉台区/汉台区/陕西省汉中市汉台区兴汉路汉中中学东侧亿丰兴汉学府",
-            "room_types": "1室",
-            "area": "建面 2465㎡",
-            "tags": "车位充足, 大型社区, 儿童乐园, 公交直达",
-            "price": "15000",
-            "price_unit": "元/㎡(均价)",
-            "total_price": "总价3700(万/套)"
+            "property_fee": "4元/m²/月"
         },
         {
             "name": "漢江新城",
@@ -291,16 +237,7 @@
             ],
             "green_ratio": "35%",
             "plot_ratio": "3.30",
-            "property_fee": "1.2元/m²/月",
-            "status": "在售",
-            "type": "N/A",
-            "location": "汉台区/汉台区/南团结街与汉宁路东北角",
-            "room_types": "2室/3室",
-            "area": "建面 96-131㎡",
-            "tags": "绿化率高, 人车分流, 入户花园, 水系园林",
-            "price": "7500",
-            "price_unit": "元/㎡(均价)",
-            "total_price": "总价72-103(万/套)"
+            "property_fee": "1.2元/m²/月"
         },
         {
             "name": "滨江·新荣府",
@@ -323,16 +260,7 @@
             ],
             "green_ratio": "31%",
             "plot_ratio": "2.85",
-            "property_fee": "2.5元/m²/月",
-            "status": "在售",
-            "type": "N/A",
-            "location": "汉台区/汉台区/陕西省汉中市汉台区滨江西路与汉津路交汇处向北200米",
-            "room_types": "1室",
-            "area": "建面 36-63㎡",
-            "tags": "低总价, 人车分流, 封闭管理, 健身跑道",
-            "price": "7500",
-            "price_unit": "元/㎡(均价)",
-            "total_price": "总价26-47(万/套)"
+            "property_fee": "2.5元/m²/月"
         },
         {
             "name": "陕建·汉悦府",
@@ -362,16 +290,7 @@
             ],
             "green_ratio": "35%",
             "plot_ratio": "2.35",
-            "property_fee": "1.2~1.5元/m²/月",
-            "status": "在售",
-            "type": "N/A",
-            "location": "汉台区/汉台区/翠屏东路陕建·汉悦府",
-            "room_types": "3室/4室",
-            "area": "建面 95-183㎡",
-            "tags": "3天无理由退房, 低总价, 车位充足, 绿化率高",
-            "price": "6200",
-            "price_unit": "元/㎡(均价)",
-            "total_price": "总价66-185(万/套)"
+            "property_fee": "1.2~1.5元/m²/月"
         },
         {
             "name": "凯旋门·云顶",
@@ -401,16 +320,7 @@
             ],
             "green_ratio": "35%",
             "plot_ratio": "2.60",
-            "property_fee": "暂无信息",
-            "status": "在售",
-            "type": "N/A",
-            "location": "汉台区/汉台区/滨江东路凯旋门·云顶",
-            "room_types": "3室/4室",
-            "area": "建面 100-157㎡",
-            "tags": "3天无理由退房, 车位充足, 绿化率高, 公交直达",
-            "price": "6600",
-            "price_unit": "元/㎡(均价)",
-            "total_price": "总价60-100(万/套)"
+            "property_fee": "暂无信息"
         },
         {
             "name": "雅居乐花园",
@@ -425,16 +335,7 @@
             ],
             "green_ratio": "30%",
             "plot_ratio": "3.00",
-            "property_fee": "3.5元/m²/月",
-            "status": "待售",
-            "type": "N/A",
-            "location": "汉台区/汉台区/滨江路雅居乐花园",
-            "room_types": "",
-            "area": "N/A",
-            "tags": "低单价, 车位充足, 人车分流, 品牌房企",
-            "price": "7500",
-            "price_unit": "元/㎡(均价)",
-            "total_price": "总价80(万/套)"
+            "property_fee": "3.5元/m²/月"
         },
         {
             "name": "雅居乐花园",
@@ -457,16 +358,7 @@
             ],
             "green_ratio": "30%",
             "plot_ratio": "3.00",
-            "property_fee": "3.5元/m²/月",
-            "status": "待售",
-            "type": "N/A",
-            "location": "汉台区/汉台区/滨江路雅居乐花园",
-            "room_types": "",
-            "area": "N/A",
-            "tags": "车位充足, 人车分流, 品牌房企, 公交直达",
-            "price": "7500",
-            "price_unit": "元/㎡(均价)",
-            "total_price": "总价80(万/套)"
+            "property_fee": "3.5元/m²/月"
         },
         {
             "name": "中天曦园",
@@ -503,16 +395,7 @@
             ],
             "green_ratio": "30%",
             "plot_ratio": "1.26",
-            "property_fee": "2.2元/m²/月",
-            "status": "在售",
-            "type": "N/A",
-            "location": "汉台区/汉台区/兴汉新区梁中路与诸汉路东北角",
-            "room_types": "3室/4室/5室",
-            "area": "建面 106-188㎡",
-            "tags": "车位充足, 低密居所, 置换改善, 养老舒适",
-            "price": "8000",
-            "price_unit": "元/㎡(均价)",
-            "total_price": "总价68-245(万/套)"
+            "property_fee": "2.2元/m²/月"
         },
         {
             "name": "紫晶天成",
@@ -542,16 +425,7 @@
             ],
             "green_ratio": "35%",
             "plot_ratio": "1.79",
-            "property_fee": "1.65元/m²/月",
-            "status": "在售",
-            "type": "N/A",
-            "location": "汉台区/汉台区/石马路紫晶天成",
-            "room_types": "3室/4室",
-            "area": "建面 114-186㎡",
-            "tags": "绿化率高, 低密居所, 置换改善, 养老舒适",
-            "price": "6300",
-            "price_unit": "元/㎡(均价)",
-            "total_price": "总价82-159(万/套)"
+            "property_fee": "1.65元/m²/月"
         },
         {
             "name": "新天汉汉中院子",
@@ -588,16 +462,7 @@
             ],
             "green_ratio": "30%",
             "plot_ratio": "0.82",
-            "property_fee": "4.5元/m²/月",
-            "status": "在售",
-            "type": "N/A",
-            "location": "汉台区/汉台区/兴元路新天汉汉中院子",
-            "room_types": "3室/4室/5室",
-            "area": "建面 178-255㎡",
-            "tags": "车位充足, 人车分流, 置换改善, 公交直达",
-            "price": "400-1000",
-            "price_unit": "(万/套)(总价)",
-            "total_price": "N/A"
+            "property_fee": "4.5元/m²/月"
         },
         {
             "name": "聚兴合园",
@@ -620,16 +485,7 @@
             ],
             "green_ratio": "40%",
             "plot_ratio": "2.30",
-            "property_fee": "1.5元/m²/月",
-            "status": "在售",
-            "type": "N/A",
-            "location": "汉台区/汉台区/留侯路聚兴合园",
-            "room_types": "3室",
-            "area": "建面 118-139㎡",
-            "tags": "低单价, 低总价, 车位充足, 绿化率高",
-            "price": "5700",
-            "price_unit": "元/㎡(均价)",
-            "total_price": "总价67-80(万/套)"
+            "property_fee": "1.5元/m²/月"
         },
         {
             "name": "万泰臻园",
@@ -666,16 +522,7 @@
             ],
             "green_ratio": "31%",
             "plot_ratio": "2.74",
-            "property_fee": "1.65元/m²/月",
-            "status": "在售",
-            "type": "N/A",
-            "location": "汉台区/汉台区/汉台区龙亭路与留侯路十字东南角",
-            "room_types": "2室/3室/4室",
-            "area": "建面 136-277㎡",
-            "tags": "人车分流, 封闭管理, 公交直达, 大平层",
-            "price": "7000",
-            "price_unit": "元/㎡(均价)",
-            "total_price": "总价99-210(万/套)"
+            "property_fee": "1.65元/m²/月"
         },
         {
             "name": "盛世国际二期",
@@ -698,16 +545,7 @@
             ],
             "green_ratio": "20%",
             "plot_ratio": "3.00",
-            "property_fee": "2元/m²/月",
-            "status": "在售",
-            "type": "N/A",
-            "location": "汉台区/汉台区/陕西省汉中市汉台区东关街道盛世国际盛世国际商业广场",
-            "room_types": "2室",
-            "area": "建面 35-38㎡",
-            "tags": "低总价, 人车分流, 小型社区, 公交直达",
-            "price": "6500",
-            "price_unit": "元/㎡(均价)",
-            "total_price": "总价21-24(万/套)"
+            "property_fee": "2元/m²/月"
         },
         {
             "name": "大汉城邦",
@@ -737,16 +575,7 @@
             ],
             "green_ratio": "35%",
             "plot_ratio": "2.35",
-            "property_fee": "1.25元/m²/月",
-            "status": "在售",
-            "type": "N/A",
-            "location": "汉台区/汉台区/陕西省汉中市汉台区",
-            "room_types": "4室/5室",
-            "area": "建面 209-225㎡",
-            "tags": "低单价, 车位充足, 绿化率高, 公交直达",
-            "price": "5000",
-            "price_unit": "元/㎡(均价)",
-            "total_price": "总价105-115(万/套)"
+            "property_fee": "1.25元/m²/月"
         },
         {
             "name": "大汉城邦",
@@ -761,16 +590,7 @@
             ],
             "green_ratio": "35%",
             "plot_ratio": "2.35",
-            "property_fee": "1.25元/m²/月",
-            "status": "在售",
-            "type": "N/A",
-            "location": "汉台区/汉台区/陕西省汉中市汉台区",
-            "room_types": "",
-            "area": "N/A",
-            "tags": "低单价, 车位充足, 人车分流, 公交直达",
-            "price": "7300",
-            "price_unit": "元/㎡(均价)",
-            "total_price": "N/A"
+            "property_fee": "1.25元/m²/月"
         }
     ]
 }
