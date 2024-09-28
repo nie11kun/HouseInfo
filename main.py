@@ -93,6 +93,28 @@ def get_loupan_details(detail_url):
             
             details['house_types'].append(type_info)
     
+    # 获取更多楼盘信息的链接
+    more_info_link = soup.find('div', class_='more-building')
+    if more_info_link and more_info_link.find('a'):
+        more_info_url = 'https://hanzhong.fang.ke.com' + more_info_link.find('a')['href']
+        more_info_response = requests.get(more_info_url, headers=headers)
+        more_info_soup = BeautifulSoup(more_info_response.text, 'html.parser')
+        
+        # 提取绿化率、容积率和物业费信息
+        info_boxes = more_info_soup.find_all('ul', class_='x-box')
+        for box in info_boxes:
+            items = box.find_all('li')
+            for item in items:
+                label = item.find('span', class_='label')
+                value = item.find('span', class_='label-val')
+                if label and value:
+                    if '绿化率' in label.text:
+                        details['green_ratio'] = value.text.strip()
+                    elif '容积率' in label.text:
+                        details['plot_ratio'] = value.text.strip()
+                    elif '物业费' in label.text:
+                        details['property_fee'] = value.text.strip()
+        
     # 下载图片
     current_dir = os.path.dirname(os.path.abspath(__file__))
     react_public_dir = os.path.join(current_dir, 'hanzhong-loupan-viewer', 'public', 'images')

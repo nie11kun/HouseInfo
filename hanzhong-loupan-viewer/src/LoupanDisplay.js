@@ -76,7 +76,10 @@ const LoupanDisplay = ({ loupan, selectedHouseType }) => {
           </div>
           <p className="mb-1">价格: {loupan.price} {loupan.price_unit}</p>
           <p className="mb-1">总价: {loupan.total_price}</p>
-          <p className="mb-3">最新开盘: {loupan.latest_open_date}</p>
+          <p className="mb-1">最新开盘: {loupan.latest_open_date}</p>
+          <p className="mb-1">绿化率: {loupan.green_ratio || 'N/A'}</p>
+          <p className="mb-1">容积率: {loupan.plot_ratio || 'N/A'}</p>
+          <p className="mb-3">物业费: {loupan.property_fee || 'N/A'}</p>
           {filteredHouseTypes.length > 0 && (
             <div className="position-relative" 
                  onTouchStart={handleTouchStart} 

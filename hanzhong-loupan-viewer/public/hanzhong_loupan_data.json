@@ -1,5 +1,5 @@
 {
-    "scrape_time": "2024-09-28 14:04:12",
+    "scrape_time": "2024-09-28 14:16:20",
     "loupans": [
         {
             "name": "雅居乐花园",
@@ -34,6 +34,9 @@
                     "local_image": "/images/378e2123-20e1-4bc1-b6b2-002d72fb28af.jpg.690x.jpg"
                 }
             ],
+            "green_ratio": "35%",
+            "plot_ratio": "3.00",
+            "property_fee": "1.65元/m²/月",
             "status": "在售",
             "type": "N/A",
             "location": "汉台区/汉台区/陕西省汉中市汉台区益州路",
@@ -91,6 +94,9 @@
                     "local_image": "/images/561695e5-470a-4b3d-abde-36b13aa335ff.jpg.690x.jpg"
                 }
             ],
+            "green_ratio": "41%",
+            "plot_ratio": "1.66",
+            "property_fee": "3.2~3.5元/m²/月",
             "status": "在售",
             "type": "N/A",
             "location": "汉台区/汉台区/南一环路首席壹号",
@@ -134,6 +140,9 @@
                     "local_image": "/images/e38d293d-79b3-4555-b03d-cd6e7d3454b0.jpg.690x.jpg"
                 }
             ],
+            "green_ratio": "35%",
+            "plot_ratio": "1.40",
+            "property_fee": "1.8元/m²/月",
             "status": "在售",
             "type": "N/A",
             "location": "汉台区/汉台区/西二环路蓝城·春风江南",
@@ -170,6 +179,9 @@
                     "local_image": "/images/28af03f8-537b-4a58-8c37-fdd8d1e91db4.jpg.690x.jpg"
                 }
             ],
+            "green_ratio": "34%",
+            "plot_ratio": "1.72",
+            "property_fee": "1.2~1.5元/m²/月",
             "status": "在售",
             "type": "N/A",
             "location": "汉台区/汉台区/陕西省汉中市汉台区兴汉路汉中中学东侧亿丰兴汉学府",
@@ -206,6 +218,9 @@
                     "local_image": "/images/543d86ce-69e5-46ab-81db-51a99b3a9b8a.jpg.690x.jpg"
                 }
             ],
+            "green_ratio": "34%",
+            "plot_ratio": "1.70",
+            "property_fee": "1.5元/m²/月",
             "status": "在售",
             "type": "N/A",
             "location": "汉台区/汉台区/陕西省汉中市汉台区兴汉路汉中中学东侧亿丰兴汉学府",
@@ -235,6 +250,9 @@
                     "local_image": "/images/8ab4dbb3-6bd5-4622-8d4b-73eaa8e33fff.jpg.690x.jpg"
                 }
             ],
+            "green_ratio": "34%",
+            "plot_ratio": "1.70",
+            "property_fee": "4元/m²/月",
             "status": "在售",
             "type": "N/A",
             "location": "汉台区/汉台区/陕西省汉中市汉台区兴汉路汉中中学东侧亿丰兴汉学府",
@@ -271,6 +289,9 @@
                     "local_image": "/images/507920dea65b2bea6694937b76cd07e3.jpg.690x.jpg"
                 }
             ],
+            "green_ratio": "35%",
+            "plot_ratio": "3.30",
+            "property_fee": "1.2元/m²/月",
             "status": "在售",
             "type": "N/A",
             "location": "汉台区/汉台区/南团结街与汉宁路东北角",
@@ -300,6 +321,9 @@
                     "local_image": "/images/1b7619e3-e7f9-4e5b-b53d-1ed813e0626d.jpg.690x.jpg"
                 }
             ],
+            "green_ratio": "31%",
+            "plot_ratio": "2.85",
+            "property_fee": "2.5元/m²/月",
             "status": "在售",
             "type": "N/A",
             "location": "汉台区/汉台区/陕西省汉中市汉台区滨江西路与汉津路交汇处向北200米",
@@ -336,6 +360,9 @@
                     "local_image": "/images/1232514e-1e6a-4ef9-a469-5f20b62524ab.jpg.690x.jpg"
                 }
             ],
+            "green_ratio": "35%",
+            "plot_ratio": "2.35",
+            "property_fee": "1.2~1.5元/m²/月",
             "status": "在售",
             "type": "N/A",
             "location": "汉台区/汉台区/翠屏东路陕建·汉悦府",
@@ -372,6 +399,9 @@
                     "local_image": "/images/efdf8128-5227-4736-aa92-d30e261646ff.png.690x.jpg"
                 }
             ],
+            "green_ratio": "35%",
+            "plot_ratio": "2.60",
+            "property_fee": "暂无信息",
             "status": "在售",
             "type": "N/A",
             "location": "汉台区/汉台区/滨江东路凯旋门·云顶",
@@ -393,6 +423,9 @@
                     "image_url": "N/A"
                 }
             ],
+            "green_ratio": "30%",
+            "plot_ratio": "3.00",
+            "property_fee": "3.5元/m²/月",
             "status": "待售",
             "type": "N/A",
             "location": "汉台区/汉台区/滨江路雅居乐花园",
@@ -422,6 +455,9 @@
                     "local_image": "/images/a54cc3f2-fda1-4a01-8b3f-64ce3ee04037.jpg.690x.jpg"
                 }
             ],
+            "green_ratio": "30%",
+            "plot_ratio": "3.00",
+            "property_fee": "3.5元/m²/月",
             "status": "待售",
             "type": "N/A",
             "location": "汉台区/汉台区/滨江路雅居乐花园",
@@ -465,6 +501,9 @@
                     "local_image": "/images/86d8c1f8-9884-4167-9d30-a26ce24f2aae.jpg.690x.jpg"
                 }
             ],
+            "green_ratio": "30%",
+            "plot_ratio": "1.26",
+            "property_fee": "2.2元/m²/月",
             "status": "在售",
             "type": "N/A",
             "location": "汉台区/汉台区/兴汉新区梁中路与诸汉路东北角",
@@ -501,6 +540,9 @@
                     "local_image": "/images/ebeefd60-f85b-4103-84c1-53712556fe92.jpg.690x.jpg"
                 }
             ],
+            "green_ratio": "35%",
+            "plot_ratio": "1.79",
+            "property_fee": "1.65元/m²/月",
             "status": "在售",
             "type": "N/A",
             "location": "汉台区/汉台区/石马路紫晶天成",
@@ -544,6 +586,9 @@
                     "local_image": "/images/a9c2b79f-4f9f-40f2-93dd-c8eb0a51f9e0.jpg.690x.jpg"
                 }
             ],
+            "green_ratio": "30%",
+            "plot_ratio": "0.82",
+            "property_fee": "4.5元/m²/月",
             "status": "在售",
             "type": "N/A",
             "location": "汉台区/汉台区/兴元路新天汉汉中院子",
@@ -573,6 +618,9 @@
                     "local_image": "/images/312d2979-cfe6-4932-91f2-7d475fbd79ff.jpg.690x.jpg"
                 }
             ],
+            "green_ratio": "40%",
+            "plot_ratio": "2.30",
+            "property_fee": "1.5元/m²/月",
             "status": "在售",
             "type": "N/A",
             "location": "汉台区/汉台区/留侯路聚兴合园",
@@ -616,6 +664,9 @@
                     "local_image": "/images/789d38b1-90ec-4af5-94ef-2d4170ba5a2d.png.690x.jpg"
                 }
             ],
+            "green_ratio": "31%",
+            "plot_ratio": "2.74",
+            "property_fee": "1.65元/m²/月",
             "status": "在售",
             "type": "N/A",
             "location": "汉台区/汉台区/汉台区龙亭路与留侯路十字东南角",
@@ -645,6 +696,9 @@
                     "local_image": "/images/655df992-8726-45e7-a4ef-40858a1b1d78.jpg.690x.jpg"
                 }
             ],
+            "green_ratio": "20%",
+            "plot_ratio": "3.00",
+            "property_fee": "2元/m²/月",
             "status": "在售",
             "type": "N/A",
             "location": "汉台区/汉台区/陕西省汉中市汉台区东关街道盛世国际盛世国际商业广场",
@@ -681,6 +735,9 @@
                     "local_image": "/images/dfcfaa54-7f1e-4b4b-9974-bbb114b1ed5c.jpg.690x.jpg"
                 }
             ],
+            "green_ratio": "35%",
+            "plot_ratio": "2.35",
+            "property_fee": "1.25元/m²/月",
             "status": "在售",
             "type": "N/A",
             "location": "汉台区/汉台区/陕西省汉中市汉台区",
@@ -702,6 +759,9 @@
                     "image_url": "N/A"
                 }
             ],
+            "green_ratio": "35%",
+            "plot_ratio": "2.35",
+            "property_fee": "1.25元/m²/月",
             "status": "在售",
             "type": "N/A",
             "location": "汉台区/汉台区/陕西省汉中市汉台区",
