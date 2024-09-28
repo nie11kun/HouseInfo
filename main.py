@@ -5,7 +5,6 @@ import time
 import os
 from urllib.parse import urlparse
 import datetime
-import hashlib
 
 def get_all_pages(url):
     headers = {
@@ -20,42 +19,24 @@ def get_all_pages(url):
     
     return [f"{url}pg{i}/" for i in range(1, max_page + 1)]
 
-def calculate_md5(file_path):
-    hash_md5 = hashlib.md5()
-    with open(file_path, "rb") as f:
-        for chunk in iter(lambda: f.read(4096), b""):
-            hash_md5.update(chunk)
-    return hash_md5.hexdigest()
-
 def download_image(url, folder, cache):
     if not url or url == 'N/A':
         return None
     
-    # 获取文件名
     filename = os.path.basename(urlparse(url).path)
-    
-    # 构建保存路径
     save_path = os.path.join(folder, filename)
     
-    # 检查缓存
     if url in cache:
         if os.path.exists(save_path):
-            if calculate_md5(save_path) == cache[url]:
-                print(f"Image {filename} exists and MD5 matches, skipping download.")
-                return filename
-        else:
-            print(f"Cached image {filename} not found, re-downloading.")
+            return filename
     
-    # 下载图片
     response = requests.get(url)
     if response.status_code == 200:
         with open(save_path, 'wb') as f:
             f.write(response.content)
         print(f"Image {filename} downloaded successfully.")
         
-        # 计算 MD5 并更新缓存
-        md5 = calculate_md5(save_path)
-        cache[url] = md5
+        cache[url] = True
         return filename
     else:
         print(f"Failed to download image {filename}.")
