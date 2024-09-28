@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Card, Badge, Carousel } from 'react-bootstrap';
 import Modal from 'react-bootstrap/Modal';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, MapPin, Calendar, Home, DollarSign, Droplets, TreePine } from 'lucide-react';
 
 const LoupanDisplay = ({ loupan, selectedHouseType }) => {
   const [showModal, setShowModal] = useState(false);
@@ -64,39 +64,48 @@ const LoupanDisplay = ({ loupan, selectedHouseType }) => {
     };
   }, [isHovering]);
 
+  // 获取地理位置的最后一部分
+  const getLastLocationPart = (location) => {
+    const parts = location.split('/');
+    return parts[parts.length - 1].trim();
+  };
+
   return (
     <>
-      <Card className="h-100">
+      <Card className="h-100 shadow-sm">
         <Card.Body className="p-3">
-          <div className="d-flex justify-content-between align-items-start mb-2">
+          <div className="d-flex justify-content-between align-items-start mb-3">
             <div>
-              <Card.Title className="mb-0">{loupan.name}</Card.Title>
-              <Card.Subtitle className="text-muted small">{loupan.location}</Card.Subtitle>
-            </div>
-            <div className="d-flex">
-              <Badge bg="primary" className="me-1">{loupan.status}</Badge>
-              <Badge bg="secondary">{loupan.type}</Badge>
+              <Card.Title className="h5 mb-2">{loupan.name}</Card.Title>
+              <Card.Subtitle className="text-muted small d-flex align-items-center mb-2">
+                <MapPin size={14} className="me-1 text-primary" />
+                <span title={loupan.location}>{getLastLocationPart(loupan.location)}</span>
+              </Card.Subtitle>
+              <div>
+                <Badge bg="primary" className="me-1">{loupan.status}</Badge>
+                <Badge bg="secondary">{loupan.type}</Badge>
+              </div>
             </div>
           </div>
           
           <div className="row g-2 mb-3">
             <div className="col-6">
-              <small className="text-muted">价格:</small> {loupan.price} {loupan.price_unit}
+              <InfoItem icon={<DollarSign size={14} />} label="价格" value={`${loupan.price} ${loupan.price_unit}`} />
             </div>
             <div className="col-6">
-              <small className="text-muted">绿化率:</small> {loupan.green_ratio || 'N/A'}
+              <InfoItem icon={<TreePine size={14} />} label="绿化率" value={loupan.green_ratio || 'N/A'} />
             </div>
             <div className="col-6">
-              <small className="text-muted">总价:</small> {loupan.total_price}
+              <InfoItem icon={<Home size={14} />} label="总价" value={loupan.total_price} />
             </div>
             <div className="col-6">
-              <small className="text-muted">容积率:</small> {loupan.plot_ratio || 'N/A'}
+              <InfoItem icon={<Droplets size={14} />} label="容积率" value={loupan.plot_ratio || 'N/A'} />
             </div>
             <div className="col-6">
-              <small className="text-muted">最新开盘:</small> {loupan.latest_open_date}
+              <InfoItem icon={<Calendar size={14} />} label="最新开盘" value={loupan.latest_open_date} />
             </div>
             <div className="col-6">
-              <small className="text-muted">物业费:</small> {loupan.property_fee || 'N/A'}
+              <InfoItem icon={<DollarSign size={14} />} label="物业费" value={loupan.property_fee || 'N/A'} />
             </div>
           </div>
 
@@ -110,22 +119,22 @@ const LoupanDisplay = ({ loupan, selectedHouseType }) => {
                 ref={carouselRef}
                 activeIndex={index}
                 onSelect={handleSelect}
-                prevIcon={<ChevronLeft className="text-primary" size={24} />}
-                nextIcon={<ChevronRight className="text-primary" size={24} />}
+                prevIcon={<ChevronLeft className="carousel-control-icon" size={24} />}
+                nextIcon={<ChevronRight className="carousel-control-icon" size={24} />}
                 indicators={false}
                 interval={null}
               >
                 {filteredHouseTypes.map((houseType, hIndex) => (
                   <Carousel.Item key={hIndex}>
                     <img
-                      className="d-block w-100"
+                      className="d-block w-100 rounded"
                       style={{ height: '200px', objectFit: 'cover', cursor: 'pointer' }}
                       src={houseType.local_image || `https://via.placeholder.com/300x200?text=${encodeURIComponent(houseType.name)}`}
                       onError={handleImageError}
                       alt={houseType.name}
                       onClick={() => handleImageClick(houseType.local_image || `https://via.placeholder.com/300x200?text=${encodeURIComponent(houseType.name)}`)}
                     />
-                    <div className="position-absolute bottom-0 start-0 end-0 p-2 bg-dark bg-opacity-50 text-white">
+                    <div className="position-absolute bottom-0 start-0 end-0 p-2 bg-dark bg-opacity-75 text-white rounded-bottom">
                       <h6 className="mb-0">{houseType.name}</h6>
                       <p className="mb-0 small">{houseType.area} | {houseType.price}</p>
                     </div>
@@ -139,11 +148,19 @@ const LoupanDisplay = ({ loupan, selectedHouseType }) => {
 
       <Modal show={showModal} onHide={() => setShowModal(false)} centered size="lg">
         <Modal.Body className="p-0">
-          <img src={selectedImage} alt="Enlarged view" className="w-100" />
+          <img src={selectedImage} alt="Enlarged view" className="w-100 rounded" />
         </Modal.Body>
       </Modal>
     </>
   );
 };
+
+const InfoItem = ({ icon, label, value }) => (
+  <div className="d-flex align-items-center">
+    <span className="text-muted me-1">{icon}</span>
+    <small className="text-muted me-1">{label}:</small>
+    <span className="small">{value}</span>
+  </div>
+);
 
 export default LoupanDisplay;
