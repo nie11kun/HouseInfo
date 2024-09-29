@@ -9,6 +9,11 @@ const LoupanDisplay = ({ loupan, selectedHouseType }) => {
   const [index, setIndex] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
   const carouselRef = useRef(null);
+  const imageRef = useRef(null);
+  const [scale, setScale] = useState(1);
+  const [panning, setPanning] = useState(false);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const lastPositionRef = useRef({ x: 0, y: 0 });
 
   const filteredHouseTypes = selectedHouseType === 'all' 
     ? loupan.house_types 
@@ -22,33 +27,61 @@ const LoupanDisplay = ({ loupan, selectedHouseType }) => {
   const handleImageClick = (imageSrc) => {
     setSelectedImage(imageSrc);
     setShowModal(true);
+    setScale(1);
+    setPosition({ x: 0, y: 0 });
   };
 
-  const handleModalImageClick = () => {
-    setShowModal(false);
+  const handleModalImageClick = (e) => {
+    if (scale === 1) {
+      setShowModal(false);
+    }
   };
 
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
   };
 
+  const handleWheel = (e) => {
+    e.preventDefault();
+    const delta = e.deltaY * -0.01;
+    const newScale = Math.min(Math.max(1, scale + delta), 3);
+    setScale(newScale);
+  };
+
   const handleTouchStart = (e) => {
-    const touch = e.touches[0];
-    carouselRef.current.touchStartX = touch.clientX;
+    if (e.touches.length === 2) {
+      e.preventDefault();
+      const touch1 = e.touches[0];
+      const touch2 = e.touches[1];
+      const distance = Math.hypot(touch1.clientX - touch2.clientX, touch1.clientY - touch2.clientY);
+      imageRef.current.dataset.initialPinchDistance = distance;
+      imageRef.current.dataset.initialScale = scale;
+    } else if (e.touches.length === 1) {
+      setPanning(true);
+      lastPositionRef.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+    }
   };
 
   const handleTouchMove = (e) => {
-    if (!carouselRef.current.touchStartX) {
-      return;
+    e.preventDefault();
+    if (e.touches.length === 2) {
+      const touch1 = e.touches[0];
+      const touch2 = e.touches[1];
+      const distance = Math.hypot(touch1.clientX - touch2.clientX, touch1.clientY - touch2.clientY);
+      const initialDistance = parseFloat(imageRef.current.dataset.initialPinchDistance);
+      const initialScale = parseFloat(imageRef.current.dataset.initialScale);
+      const newScale = Math.min(Math.max(1, initialScale * (distance / initialDistance)), 3);
+      setScale(newScale);
+    } else if (e.touches.length === 1 && panning) {
+      const deltaX = e.touches[0].clientX - lastPositionRef.current.x;
+      const deltaY = e.touches[0].clientY - lastPositionRef.current.y;
+      setPosition(prev => ({ x: prev.x + deltaX, y: prev.y + deltaY }));
+      lastPositionRef.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
     }
-    const touch = e.touches[0];
-    const diff = carouselRef.current.touchStartX - touch.clientX;
-    if (diff > 50) {
-      carouselRef.current.next();
-    } else if (diff < -50) {
-      carouselRef.current.prev();
-    }
-    carouselRef.current.touchStartX = null;
+  };
+
+  const handleTouchEnd = () => {
+    setPanning(false);
   };
 
   useEffect(() => {
@@ -151,14 +184,34 @@ const LoupanDisplay = ({ loupan, selectedHouseType }) => {
       </Card>
 
       <Modal show={showModal} onHide={() => setShowModal(false)} centered size="lg">
-        <Modal.Body className="p-0">
-          <img 
-            src={selectedImage} 
-            alt="Enlarged view" 
-            className="w-100 rounded" 
-            style={{ cursor: 'pointer' }}
-            onClick={handleModalImageClick}
-          />
+        <Modal.Body className="p-0" style={{ overflow: 'hidden' }}>
+          <div
+            style={{
+              width: '100%',
+              height: '100%',
+              overflow: 'hidden',
+              touchAction: 'none'
+            }}
+            onWheel={handleWheel}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
+            <img 
+              ref={imageRef}
+              src={selectedImage} 
+              alt="Enlarged view" 
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'contain',
+                cursor: scale === 1 ? 'pointer' : 'move',
+                transform: `scale(${scale}) translate(${position.x}px, ${position.y}px)`,
+                transition: 'transform 0.1s ease-out'
+              }}
+              onClick={handleModalImageClick}
+            />
+          </div>
         </Modal.Body>
       </Modal>
     </>
