@@ -24,6 +24,10 @@ const LoupanDisplay = ({ loupan, selectedHouseType }) => {
     setShowModal(true);
   };
 
+  const handleModalImageClick = () => {
+    setShowModal(false);
+  };
+
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
   };
@@ -148,7 +152,13 @@ const LoupanDisplay = ({ loupan, selectedHouseType }) => {
 
       <Modal show={showModal} onHide={() => setShowModal(false)} centered size="lg">
         <Modal.Body className="p-0">
-          <img src={selectedImage} alt="Enlarged view" className="w-100 rounded" />
+          <img 
+            src={selectedImage} 
+            alt="Enlarged view" 
+            className="w-100 rounded" 
+            style={{ cursor: 'pointer' }}
+            onClick={handleModalImageClick}
+          />
         </Modal.Body>
       </Modal>
     </>
