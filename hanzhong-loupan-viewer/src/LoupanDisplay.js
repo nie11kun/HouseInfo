@@ -14,6 +14,7 @@ const LoupanDisplay = ({ loupan, selectedHouseType }) => {
   const [panning, setPanning] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const lastPositionRef = useRef({ x: 0, y: 0 });
+  const [modalSize, setModalSize] = useState('lg');
 
   const filteredHouseTypes = selectedHouseType === 'all' 
     ? loupan.house_types 
@@ -29,6 +30,7 @@ const LoupanDisplay = ({ loupan, selectedHouseType }) => {
     setShowModal(true);
     setScale(1);
     setPosition({ x: 0, y: 0 });
+    setModalSize('lg');
   };
 
   const handleModalImageClick = (e) => {
@@ -41,11 +43,22 @@ const LoupanDisplay = ({ loupan, selectedHouseType }) => {
     setIndex(selectedIndex);
   };
 
+  const updateModalSize = (newScale) => {
+    if (newScale <= 1) {
+      setModalSize('lg');
+    } else if (newScale <= 2) {
+      setModalSize('xl');
+    } else {
+      setModalSize('fullscreen');
+    }
+  };
+
   const handleWheel = (e) => {
     e.preventDefault();
     const delta = e.deltaY * -0.01;
     const newScale = Math.min(Math.max(1, scale + delta), 3);
     setScale(newScale);
+    updateModalSize(newScale);
   };
 
   const handleTouchStart = (e) => {
@@ -72,6 +85,7 @@ const LoupanDisplay = ({ loupan, selectedHouseType }) => {
       const initialScale = parseFloat(imageRef.current.dataset.initialScale);
       const newScale = Math.min(Math.max(1, initialScale * (distance / initialDistance)), 3);
       setScale(newScale);
+      updateModalSize(newScale);
     } else if (e.touches.length === 1 && panning) {
       const deltaX = e.touches[0].clientX - lastPositionRef.current.x;
       const deltaY = e.touches[0].clientY - lastPositionRef.current.y;
@@ -183,7 +197,13 @@ const LoupanDisplay = ({ loupan, selectedHouseType }) => {
         </Card.Body>
       </Card>
 
-      <Modal show={showModal} onHide={() => setShowModal(false)} centered size="lg">
+      <Modal 
+        show={showModal} 
+        onHide={() => setShowModal(false)} 
+        centered 
+        size={modalSize}
+        className="image-modal"
+      >
         <Modal.Body className="p-0" style={{ overflow: 'hidden' }}>
           <div
             style={{
